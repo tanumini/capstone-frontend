@@ -9,28 +9,20 @@ import { UserService } from '../user.service';
 })
 export class RegisterComponent implements OnInit {
 
-  user: User=new User("","","","",0,"","","",Math.random()*(10000-10+1)+10,0,0);
-//   user={
-    
-//     firstname:"",
-//     lastname:"",
-//  username:"",
-//     password:"",
-//       phoneno:0,
-//    dob:"",
-//    email:"",
-//      pancardno:"",
-//    accountno:"Math.random()*(10000-10+1)+10",
-//     balance:0,
-//     pin:0
-//   }
+  user:User = new User();
+
+  submitted = false;
+ 
   constructor(private service :UserService) { }
 
   ngOnInit(): void {
   }
-  public registerNow(){
- 
-    let resp=this.service.doRegistration(this.user);
-    resp.subscribe((data:any)=>console.log(data));
-      }
+  onSubmit() {
+    this.submitted = true;
+    this.service.doRegistration(this.user)
+    .subscribe(data => console.log(data), error => console.log(error));
+    this.user = new User();
+   
+  }
+
 }
