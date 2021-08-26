@@ -33,9 +33,9 @@
                                         <input required pattern="^[A-Z a-z]+$" type="text" [(ngModel)]="user.firstname"
                                             name="firstname" id="firstname" class="form-control p4 my-3 "
                                             placeholder="firstname"  #firstname="ngModel">
-                                        <div [hidden]="firstname.valid || firstname.pristine" class="alert alert-danger">
+                                        <!-- <div [hidden]="firstname.valid || firstname.pristine" class="alert alert-danger">
                                             required
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
