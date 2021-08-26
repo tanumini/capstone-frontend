@@ -1,47 +1,49 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
 import { User } from '../user';
 import { UserService } from '../user.service';
 
 @Component({
-  selector: 'app-user-account',
-  templateUrl: './user-account.component.html',
-  styleUrls: ['./user-account.component.css']
+  selector: 'app-pin',
+  templateUrl: './pin.component.html',
+  styleUrls: ['./pin.component.css']
 })
-export class UserAccountComponent implements OnInit {
+export class PinComponent implements OnInit {
   submitted = false;
   fetchedUser: User;
   pan:string;
-accounttype:any;
-basecurrency:any;
-
- 
+  pin:number;
+  confirmpin:number;
   constructor(private service :UserService, private router:Router) { }
 
   ngOnInit(): void {
     
-
   }
   timeoutfunc1()
   {
     
     this.service.updateaccount(this.fetchedUser.id,this.fetchedUser)
     .subscribe(data => console.log(data), error => console.log(error));
-   this. accounttype="";
-    this.basecurrency="";
+    this.pin=0;
   
-    // this.router.navigate(['pin']);
+  
+    // this.router.navigate(['register']);
   }
   timeoutfunc()
   {
-    this.fetchedUser.accounttype=this.accounttype;
-            this.fetchedUser.basecurrency=this.basecurrency;
+    if(this.pin==this.confirmpin)
+    {
+      this.fetchedUser.pin=this.pin;
+
             console.log(this.fetchedUser.id);
 
             setTimeout(() =>{
               this.timeoutfunc1();
           }, 1000);
+    }
+  else{
+    alert("Enter pin correctly")
+  }
    
   }
   onSubmit() {
@@ -55,7 +57,7 @@ basecurrency:any;
               this.fetchedUser=user;
              
        console.log(this.fetchedUser);
-       console.log(JSON.stringify(this.accounttype));
+   
             }
             
         
@@ -72,13 +74,4 @@ basecurrency:any;
     
   }
     
-
- 
-
-
-  
-  
-  
-
-
 

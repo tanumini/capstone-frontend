@@ -9,6 +9,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { UserService } from './user.service';
 import { UserAccountComponent } from './user-account/user-account.component';
+import { PinComponent } from './pin/pin.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { UserAccountComponent } from './user-account/user-account.component';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    UserAccountComponent
+    UserAccountComponent,
+    PinComponent
   ],
   imports: [
     BrowserModule,
