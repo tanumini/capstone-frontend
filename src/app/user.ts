@@ -8,25 +8,11 @@ username:string;
   email:string;
     pancardno:string;
   accountno:number;
-   balance:number;
+  accounttype:string;
+  basecurrency:string;
+//   let map = new Map<object, string>();
+  balance:Map<string,number>;
+   // balance:number;
    pin:number ;
-//     constructor(
-
-//        firstname:string,
-//     lastname:string,
-//  username:string,
-//     password:string,
-//       phoneno:number,
-//    dob:string,
-//    email:string,
-//      pancardno:string,
-//    accountno:number,
-//     balance:number,
-//     pin:number
-//     ){
-//         // accountno=Math.random()*(10000-10+1)+10; 
-//         // balance=0;
-//         // pin=0;
-//     }
 
 }
