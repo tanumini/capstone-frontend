@@ -15,6 +15,7 @@ export class UserAccountComponent implements OnInit {
   pan:string;
 accounttype:any;
 basecurrency:any;
+
   //  accounttype:string="";
   // basecurrency:string="";
   constructor(private service :UserService, private router:Router) { }
@@ -22,6 +23,27 @@ basecurrency:any;
   ngOnInit(): void {
     
 
+  }
+  timeoutfunc1()
+  {
+    
+    this.service.updateaccount(this.fetchedUser.id,this.fetchedUser)
+    .subscribe(data => console.log(data), error => console.log(error));
+   this. accounttype="";
+    this.basecurrency="";
+  
+    this.router.navigate(['register']);
+  }
+  timeoutfunc()
+  {
+    this.fetchedUser.accounttype=this.accounttype;
+            this.fetchedUser.basecurrency=this.basecurrency;
+            console.log(this.fetchedUser.id);
+
+            setTimeout(() =>{
+              this.timeoutfunc1();
+          }, 1000);
+   
   }
   onSubmit() {
     this.submitted = true;
@@ -33,21 +55,19 @@ basecurrency:any;
             if(user.pancardno==this.pan){
               this.fetchedUser=user;
              
-              console.log(this.fetchedUser.email);
-               console.log(typeof(JSON.stringify(this.accounttype)));
+       console.log(this.fetchedUser);
+       console.log(JSON.stringify(this.accounttype));
             }
-          })
+            
+        
          
         })
-
-       this.fetchedUser.accounttype=JSON.stringify(this.accounttype);
-       this.fetchedUser.basecurrency=JSON.stringify(this.basecurrency);
-      this.service.updateaccount(this.fetchedUser.id,this.fetchedUser)
-    .subscribe(data => console.log(data), error => console.log(error));
-   this. accounttype="";
-    this.basecurrency="";
-  
-    this.router.navigate(['register']);
+        
+      })
+      setTimeout(() =>{
+        this.timeoutfunc();
+    }, 100);
+    
  
     }
     

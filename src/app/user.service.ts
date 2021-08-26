@@ -21,8 +21,8 @@ getpan()
     return this.http.post("http://localhost:9002/api/users/register",user);
   }
    // Update 
-   updateaccount(id, data: any) {
-    return this.http.put("http://localhost:9002/api/users/register/${id}", data);
+   updateaccount(id:any, data: any) {
+    return this.http.put(`http://localhost:9002/api/users/register/${id}`, data);
   }
   updateaccount2(id, data: any) {
     return this.http.patch("http://localhost:9002/api/users/register/${id}", data);
