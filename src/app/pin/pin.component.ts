@@ -13,7 +13,7 @@ export class PinComponent implements OnInit {
   fetchedUser: User;
   pan:string;
   pin:number;
-  confirmpin:number;
+  // confirmpin:number;
   constructor(private service :UserService, private router:Router) { }
 
   ngOnInit(): void {
@@ -27,23 +27,23 @@ export class PinComponent implements OnInit {
     this.pin=0;
   
   
-    // this.router.navigate(['register']);
+     this.router.navigate(['register']);
   }
   timeoutfunc()
   {
-    if(this.pin==this.confirmpin)
-    {
+    // if(this.pin==this.confirmpin)
+    // {
       this.fetchedUser.pin=this.pin;
 
-            console.log(this.fetchedUser.id);
+            console.log(this.fetchedUser.pin);
 
             setTimeout(() =>{
               this.timeoutfunc1();
           }, 1000);
-    }
-  else{
-    alert("Enter pin correctly")
-  }
+    // }
+  // else{
+  //   alert("Enter pin correctly")
+  // }
    
   }
   onSubmit() {
@@ -67,7 +67,7 @@ export class PinComponent implements OnInit {
       })
       setTimeout(() =>{
         this.timeoutfunc();
-    }, 100);
+    }, 300);
     
  
     }

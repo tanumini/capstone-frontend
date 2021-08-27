@@ -14,7 +14,7 @@ username:string;
 
   balance:Map<string,number>;
 
-   pin:number ;
+   public pin:number ;
 
 
 }

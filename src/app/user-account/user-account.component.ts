@@ -31,7 +31,7 @@ basecurrency:any;
    this. accounttype="";
     this.basecurrency="";
   
-    // this.router.navigate(['pin']);
+     this.router.navigate(['pin']);
   }
   timeoutfunc()
   {
@@ -41,7 +41,7 @@ basecurrency:any;
 
             setTimeout(() =>{
               this.timeoutfunc1();
-          }, 1000);
+          }, 300);
    
   }
   onSubmit() {
@@ -65,7 +65,7 @@ basecurrency:any;
       })
       setTimeout(() =>{
         this.timeoutfunc();
-    }, 100);
+    }, 300);
     
  
     }
